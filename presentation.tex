@@ -194,8 +194,8 @@
 	\begin{itemize}
 		\item Recommender system POV: usually mainly descriptive / predictive
 		\item But: User may have “normal” behavior that she rejects when thinking carefully
-		\item Extreme case: user violating dominance (Choose a hotel less good on every aspects)
-		\item Realistic case: user discriminates unwillingly
+		\item Example: user violating dominance (Choose a hotel less good on every aspects)
+		\item Example: user discriminates unwillingly
 		\item Other examples to come
 	\end{itemize}
 \end{frame}
@@ -209,7 +209,8 @@
 		\item $\allalts = \prod_{\crit \in \crits} X_\crit$
 		\item Model: $R$ over $\allalts$
 	\end{itemize}
-	\begin{center}
+	\begin{exampleblock}{Let’s garden a bit}
+		\centering
 		\begin{tikzpicture}
 			\path node[matrix of nodes, ampersand replacement=\&] (my matrix) {
 					\& quantity	\& taste	\& \node[align=left] {supports\\pollinators};	\& \node[align=left] {resists\\to cold};\\
@@ -220,7 +221,7 @@
 				...	\& 	\& 	\& 	\& \\
 			};
 		\end{tikzpicture}
-	\end{center}
+	\end{exampleblock}
 \end{frame}
 
 \DTLnewdb{Global warming}
@@ -592,11 +593,39 @@
 
 \begin{frame}
 	\frametitle{Experimental psychology and decision under risk}
-	\begin{itemize}
-		\item Similar effects exist under the “risk” context
-		\item Ask using probability equivalents: Prefer $p_x = (0.5, 10 VS 0)$ to $p_y = (?, 20 VS 0)$?
-		\item Or ask using certainty equivalents: Prefer $p_x = (0.5, 10 VS 0)$ to $p_y = (1, ?)$?
-	\end{itemize}
+	Similar effects exist under the “risk” context
+	\setlength{\DUNodeSep}{1cm}
+	\begin{block}{Using probability equivalents}
+		\centering
+		\begin{tikzpicture}
+			\path node (x1) {$p_x$};
+			\path (x1.east) ++ (\DUNodeSep, 7mm) node[anchor=west] (c11) {10};
+			\path (x1.east) ++ (\DUNodeSep, -7mm) node[anchor=west] (c14) {0};
+			\path[draw] (x1) -- (c11) node[pos=0.6, shift={(0, 4mm)}] {\num{0.5}};
+			\path[draw] (x1) -- (c14) node[pos=0.6, shift={(0, 1mm)}] {\num{0.5}};
+		\end{tikzpicture}
+		\hspace{2cm}
+		\begin{tikzpicture}
+			\path node (x1) {$p_y$};
+			\path (x1.east) ++ (\DUNodeSep, 7mm) node[anchor=west] (c11) {20};
+			\path (x1.east) ++ (\DUNodeSep, -7mm) node[anchor=west] (c14) {0};
+			\path[draw] (x1) -- (c11) node[pos=0.5, shift={(0, 4mm)}] {?};
+			\path[draw] (x1) -- (c14);
+		\end{tikzpicture}
+	\end{block}
+	\begin{block}{Using certainty equivalents}
+		\centering
+		\begin{tikzpicture}
+			\path node (x1) {$p_x$};
+			\path (x1.east) ++ (\DUNodeSep, 7mm) node[anchor=west] (c11) {10};
+			\path (x1.east) ++ (\DUNodeSep, -7mm) node[anchor=west] (c14) {0};
+			\path[draw] (x1) -- (c11) node[pos=0.6, shift={(0, 4mm)}] {\num{0.5}};
+			\path[draw] (x1) -- (c14) node[pos=0.6, shift={(0, 1mm)}] {\num{0.5}};
+			\path (x1) ++ (4\DUNodeSep, 0) node (py) {$p_y$};
+			\path (py.east) ++ (\DUNodeSep, 0mm) node[anchor=west] (cy) {?};
+			\path[draw] (py) -- (cy) node[pos=0.5, shift={(0, 4mm)}] {1};
+		\end{tikzpicture}
+	\end{block}
 \end{frame}
 
 \begin{frame}
